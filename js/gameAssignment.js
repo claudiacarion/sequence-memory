@@ -1,2 +1,5 @@
-let button = document.querySelector(".startButton");
-button.onclick = () => playGame();
+document.querySelector(".start-button").onclick = () => playGame();
+
+const playGame = () => {
+  alert("it's working")
+}

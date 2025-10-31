@@ -3,9 +3,37 @@
   font-family: "DynaPuff", system-ui;
 }
 
+html,
+body {
+  height: 100vh;
+}
+
 body {
   background-color: #f4e7a4;
+  display: flex;
+  flex-direction: column;
   margin: 0;
+}
+
+h1 {
+  font-size: 2.8em;
+}
+
+h2 {
+  font-size: 2.2em;
+}
+
+h3 {
+  font-size: 1.8em;
+}
+
+h4 {
+  font-size: 1.2em;
+}
+
+a, a:hover, a:visited {
+  color: #ED1D58;
+  text-decoration: none;
 }
 
 .header {
@@ -16,17 +44,34 @@ body {
 }
 
 .main-content {
-  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  align-items: center;
+  padding: 48px;
 }
 
-.startButton {
-  background-color: #6610F2;
+.instructions {
+  width: 50%;
+}
+.start-button {
+  background-color: #6610f2;
   border: 3px solid #000;
   border-radius: 10px;
   color: #fff;
   font-size: 2rem;
+  margin: 8px;
+  padding: 8px;
+  width: 200px;
 }
 
-.startButton:hover {
-  transform: scale(0.9);
+.start-button:hover {
+  cursor: pointer;
+  transform: rotate(180deg) scale(0.9);
+}
+
+.footer {
+  margin: 0;
+  padding: 16px;
+  text-align: center;
 }

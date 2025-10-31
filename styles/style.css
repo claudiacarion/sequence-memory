@@ -1,7 +1,32 @@
 * {
   box-sizing: border-box;
+  font-family: "DynaPuff", system-ui;
 }
 
 body {
+  background-color: #f4e7a4;
   margin: 0;
+}
+
+.header {
+  background-color: #1a8fe3;
+  margin: 0;
+  padding: 16px;
+  text-align: center;
+}
+
+.main-content {
+  padding: 32px;
+}
+
+.startButton {
+  background-color: #6610F2;
+  border: 3px solid #000;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 2rem;
+}
+
+.startButton:hover {
+  transform: scale(0.9);
 }

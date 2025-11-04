@@ -14,6 +14,7 @@ const playGame = () => {
       sequence.push(NUMBERS[randomIndex]);
     }
     alert(`Remember this sequence: ${sequence.join(" ")}`);
+    console.log(sequence);
 
     let validInput = false;
     let userSequence = [];
@@ -32,26 +33,28 @@ const playGame = () => {
       userSequence = userArray.map(Number);
 
       let invalid = false;
+      let short = false;
 
-      if (userSequence.length !== sequence.length) {
-        invalid = true;
-        alert(`You entered ${userSequence.length} digits. There should be ${sequence.length} digits.`);
-      } else {
-        for (let i = 0; i < userSequence.length; i++) {
-          if (isNaN(userSequence[i]) || !NUMBERS.includes(userSequence[i])) {
-            invalid = true;
-            alert("Invalid! Enter numbers only!");
-            break;
-          }
+      for (let i = 0; i < userSequence.length; i++) {
+        if (isNaN(userSequence[i]) || !NUMBERS.includes(userSequence[i])) {
+          invalid = true;
+          break;
         }
       }
 
+      if (!invalid && userSequence.length !== sequence.length) {
+        short = true;
+      }
+
       if (invalid) {
-        alert("Invalid! Try again!");
+        alert("Invalid! Enter numbers only!");
+      } else if (short) {
+        alert(`You entered ${userSequence.length} digits. There should be ${sequence.length} digits. Try again!`);
       } else {
         validInput = true;
       }
     }
+    
     if (gameOver) {
       break;
     }
@@ -64,7 +67,8 @@ const playGame = () => {
       }
     }
 
-    if (correct && currentRound <= 5) { // why is this alerting round 6???
+    if (correct && currentRound <= 5) {
+      // why is this alerting round 6??? but if i make it <5, it doesn't check if round5 is correct.
       currentRound++;
       alert(`You got it! Ready for Round ${currentRound}?`);
     } else {
@@ -74,7 +78,7 @@ const playGame = () => {
   }
 
   if (gameOver) {
-    alert("Good try! Better luck next time!"); // why does this keep running?
+    alert("Better luck next time!");
   } else if (!gameOver && currentRound > ROUNDS) {
     alert("Great memory! You got all 15 digits! You win!");
   }

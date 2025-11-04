@@ -15,6 +15,13 @@ body {
   margin: 0;
 }
 
+h1,
+h2,
+h3,
+h4 {
+  margin: 8px;
+}
+
 h1 {
   font-size: 2.8em;
 }
@@ -31,15 +38,17 @@ h4 {
   font-size: 1.2em;
 }
 
-a, a:hover, a:visited {
-  color: #ED1D58;
+a,
+a:hover,
+a:visited {
+  color: #ed1d58;
   text-decoration: none;
 }
 
 .header {
   background-color: #1a8fe3;
   margin: 0;
-  padding: 16px;
+  padding: 32px;
   text-align: center;
 }
 
@@ -48,12 +57,13 @@ a, a:hover, a:visited {
   flex-direction: column;
   flex-grow: 1;
   align-items: center;
-  padding: 48px;
+  padding: 8px;
 }
 
 .instructions {
   width: 50%;
 }
+
 .start-button {
   background-color: #6610f2;
   border: 3px solid #000;
@@ -72,6 +82,5 @@ a, a:hover, a:visited {
 
 .footer {
   margin: 0;
-  padding: 16px;
   text-align: center;
 }

@@ -1,13 +1,13 @@
 document.querySelector(".start-button").onclick = () => playGame();
 
-const ROUNDS = 5;
-const NUMBERS = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-
-let currentRound = 1;
-let gameOver = false;
-let sequence = [];
-
 const playGame = () => {
+  const ROUNDS = 5;
+  const NUMBERS = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+  let currentRound = 1;
+  let gameOver = false;
+  let sequence = [];
+
   while (currentRound <= ROUNDS && !gameOver) {
     for (let i = 0; i < currentRound; i++) {
       let randomIndex = Math.floor(Math.random() * NUMBERS.length);
@@ -21,7 +21,8 @@ const playGame = () => {
     while (!validInput) {
       let userInput = prompt("Enter the sequence or cancel to quit");
       if (userInput === null) {
-        alert("Womp womp. You quit.");
+        alert(`Womp womp. You quit. The sequence was ${sequence.join(" ")}.`);
+
         gameOver = true;
         break;
       }
@@ -63,18 +64,18 @@ const playGame = () => {
       }
     }
 
-    if (correct && currentRound <= 5) {
-      alert(`You got it! Ready for Round ${currentRound + 1}?`);
+    if (correct && currentRound <= 5) { // why is this alerting round 6???
       currentRound++;
+      alert(`You got it! Ready for Round ${currentRound}?`);
     } else {
       alert(`Whoops! The sequence was ${sequence.join(" ")}. You entered ${userSequence.join(" ")}.`);
       gameOver = true;
     }
   }
 
-  if (!gameOver && currentRound > ROUNDS) {
-    alert("Great memory! You got all 15 digits! You win!");
-  } else {
+  if (gameOver) {
     alert("Good try! Better luck next time!"); // why does this keep running?
+  } else if (!gameOver && currentRound > ROUNDS) {
+    alert("Great memory! You got all 15 digits! You win!");
   }
 };

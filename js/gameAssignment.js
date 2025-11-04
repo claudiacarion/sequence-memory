@@ -28,19 +28,17 @@ const playGame = () => {
 
       let userArray = userInput.replace(/\s+/g, "").split("");
 
-      userSequence = [];
-
-      for (let i = 0; i < userArray.length; i++) {
-        userSequence.push(Number(userArray[i]));
-      }
+      userSequence = userArray.map(Number);
 
       let invalid = false;
 
       if (userSequence.length !== sequence.length) {
+        invalid = true;
         alert(`You entered ${userSequence.length} digits. There should be ${sequence.length} digits.`);
       } else {
         for (let i = 0; i < userSequence.length; i++) {
           if (isNaN(userSequence[i]) || !NUMBERS.includes(userSequence[i])) {
+            invalid = true;
             alert("Invalid! Enter numbers only!");
             break;
           }
@@ -63,21 +61,20 @@ const playGame = () => {
         correct = false;
         break;
       }
-
-      if (correct) {
-        alert(`You got it! Ready for Round ${currentRound + 1}?`);
-        currentRound++;
-      } else {
-        alert(`Whoops! The sequence was ${sequence.join(" ")}. You entered ${userSequence.join(" ")}.`);
-        gameOver = true;
-      }
     }
 
-    if (!gameOver && currentRound > ROUNDS) {
-      alert("Great memory! You got all 15 digits! You win!");
+    if (correct && currentRound <= 5) {
+      alert(`You got it! Ready for Round ${currentRound + 1}?`);
+      currentRound++;
     } else {
-      alert("Good try! Better luck next time!");
-      break;
+      alert(`Whoops! The sequence was ${sequence.join(" ")}. You entered ${userSequence.join(" ")}.`);
+      gameOver = true;
     }
+  }
+
+  if (!gameOver && currentRound > ROUNDS) {
+    alert("Great memory! You got all 15 digits! You win!");
+  } else {
+    alert("Good try! Better luck next time!"); // why does this keep running?
   }
 };

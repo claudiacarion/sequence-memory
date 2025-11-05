@@ -54,7 +54,7 @@ const playGame = () => {
         validInput = true;
       }
     }
-    
+
     if (gameOver) {
       break;
     }
@@ -67,19 +67,18 @@ const playGame = () => {
       }
     }
 
-    if (correct && currentRound <= 5) {
-      // why is this alerting round 6??? but if i make it <5, it doesn't check if round5 is correct. Try putting if (gameOver)loop inside if (correct) loop.
-      currentRound++;
-      alert(`You got it! Ready for Round ${currentRound}?`);
+    if (correct) {
+      if (currentRound >= ROUNDS) {
+        alert("Great memory! You got all 15 digits! You win!");
+        break;
+      } else {
+        currentRound++;
+        alert(`You got it! Ready for Round ${currentRound}?`);
+      }
     } else {
-      alert(`Whoops! The sequence was ${sequence.join(" ")}. You entered ${userSequence.join(" ")}.`);
       gameOver = true;
+      alert(`Whoops! The sequence was ${sequence.join(" ")}. You entered ${userSequence.join(" ")}.`);
+      alert("Better luck next time!");
     }
-  }
-
-  if (gameOver) {
-    alert("Better luck next time!");
-  } else if (!gameOver && currentRound > ROUNDS) {
-    alert("Great memory! You got all 15 digits! You win!");
   }
 };

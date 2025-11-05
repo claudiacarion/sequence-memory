@@ -68,7 +68,7 @@ const playGame = () => {
     }
 
     if (correct && currentRound <= 5) {
-      // why is this alerting round 6??? but if i make it <5, it doesn't check if round5 is correct.
+      // why is this alerting round 6??? but if i make it <5, it doesn't check if round5 is correct. Try putting if (gameOver)loop inside if (correct) loop.
       currentRound++;
       alert(`You got it! Ready for Round ${currentRound}?`);
     } else {

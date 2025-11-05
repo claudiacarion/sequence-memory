@@ -14,7 +14,8 @@ const playGame = () => {
       sequence.push(NUMBERS[randomIndex]);
     }
     alert(`Remember this sequence: ${sequence.join(" ")}`);
-    console.log(sequence);
+    console.log(sequence); 
+    // Uncomment console.log above for testing without memorizing 15 digits...
 
     let validInput = false;
     let userSequence = [];
@@ -77,7 +78,7 @@ const playGame = () => {
       }
     } else {
       gameOver = true;
-      alert(`Whoops! The sequence was ${sequence.join(" ")}. You entered ${userSequence.join(" ")}.`);
+      alert(`Whoops! The sequence was ${sequence.join(" ")} but you entered ${userSequence.join(" ")}.`);
       alert("Better luck next time!");
     }
   }

@@ -1,20 +1,20 @@
 document.querySelector(".start-button").onclick = () => playGame();
 
 const playGame = () => {
-  const ROUNDS = 5;
+  const TOTALROUNDS = 5;
   const NUMBERS = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
   let currentRound = 1;
   let gameOver = false;
   let sequence = [];
 
-  while (currentRound <= ROUNDS && !gameOver) {
+  while (currentRound <= TOTALROUNDS && !gameOver) {
     for (let i = 0; i < currentRound; i++) {
       let randomIndex = Math.floor(Math.random() * NUMBERS.length);
       sequence.push(NUMBERS[randomIndex]);
     }
     alert(`Remember this sequence: ${sequence.join(" ")}`);
-    console.log(sequence); 
+    // console.log(sequence); 
     // Uncomment console.log above for testing without memorizing 15 digits...
 
     let validInput = false;
@@ -24,13 +24,11 @@ const playGame = () => {
       let userInput = prompt("Enter the sequence or cancel to quit");
       if (userInput === null) {
         alert(`Womp womp. You quit. The sequence was ${sequence.join(" ")}.`);
-
         gameOver = true;
         break;
       }
 
       let userArray = userInput.replace(/\s+/g, "").split("");
-
       userSequence = userArray.map(Number);
 
       let invalid = false;
@@ -42,7 +40,7 @@ const playGame = () => {
           break;
         }
       }
-
+      
       if (!invalid && userSequence.length !== sequence.length) {
         short = true;
       }
@@ -69,7 +67,7 @@ const playGame = () => {
     }
 
     if (correct) {
-      if (currentRound >= ROUNDS) {
+      if (currentRound >= TOTALROUNDS) {
         alert("Great memory! You got all 15 digits! You win!");
         break;
       } else {

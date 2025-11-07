@@ -14,7 +14,7 @@ const playGame = () => {
       sequence.push(NUMBERS[randomIndex]);
     }
     alert(`Remember this sequence: ${sequence.join(" ")}`);
-    // console.log(sequence); 
+    // console.log(sequence);
     // Uncomment console.log above for testing without memorizing 15 digits...
 
     let validInput = false;
@@ -40,7 +40,7 @@ const playGame = () => {
           break;
         }
       }
-      
+
       if (!invalid && userSequence.length !== sequence.length) {
         short = true;
       }

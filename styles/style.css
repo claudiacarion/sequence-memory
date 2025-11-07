@@ -82,6 +82,10 @@ a:visited {
   transform: rotate(180deg) scale(0.9);
 }
 
+.start-button:visited {
+  outline: none;
+}
+
 .footer {
   margin: 0;
   text-align: center;
